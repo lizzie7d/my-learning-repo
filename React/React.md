@@ -19,3 +19,7 @@ console.log(newPlayer);==> {score:2, name:'liz'}
 跟踪不可变数据的变化相对来说就容易多了。如果发现对象变成了一个新对象，那么我们就可以说对象发生改变了。
 
 不可变性最主要的优势在于它可以帮助我们在 React 中创建 pure components。我们可以很轻松的确定不可变数据是否发生了改变，从而确定何时对组件进行重新渲染。
+
+2.事件处理
+不可以通过 return false 的方法阻止默认行为，必须显式的使用 preventDefault
+如果没有在方法后面添加 ()，例如 onClick={this.handleClick}，则应该为这个方法绑定 this。
