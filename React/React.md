@@ -23,3 +23,6 @@ console.log(newPlayer);==> {score:2, name:'liz'}
 2.事件处理
 不可以通过 return false 的方法阻止默认行为，必须显式的使用 preventDefault
 如果没有在方法后面添加 ()，例如 onClick={this.handleClick}，则应该为这个方法绑定 this。
+
+3.代码分割
+最佳方式是 import()方法
