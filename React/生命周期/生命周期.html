@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>React生命周期</title>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+  class Clock extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = { date: new Date() };
+      console.log(props, "constructor");
+    }
+    componentDidMount() {
+      console.log("ComponentDidMount", this);
+      console.log(this.props);
+      console.log(this.state);
+      console.log("");
+      this.timer = setInterval(() => this.tick(), 1000);
+    }
+    componentWillUnmount() {
+      console.log("ComponentWillUnmount", this);
+      console.log(this.props);
+      console.log(this.state);
+      console.log("");
+      clearInterval(this.timer);
+    }
+    tick() {
+      this.setState({ date: new Date() });
+    }
+    render() {
+      return (
+        <div>
+          <h1>{this.props.tips}</h1>
+          <h2>Now: {this.state.date.toLocaleTimeString()}</h2>
+        </div>
+      );
+    }
+  }
+
+  class App extends React.Component{
+    constructor(props){
+      super(props);
+      this.state = { 
+        showClock: true,
+        tips: "Hello World!"
+      }
+      console.log("AppConstructor",props);
+    }
+    componentDidUpdate(prevProps, prevState) {
+      console.log("ComponentDidUpdate", this);
+      console.log(this.props);
+      console.log(this.state);
+      console.log("");
+    }
+    updateTips() {
+      this.setState((state, props) => ({
+        tips: "React update"
+      }));
+    }
+    changeDisplayClock() {
+      this.setState((state, props) => ({
+        showClock: !this.state.showClock
+      }));
+    }
+    render() {
+      return (
+        <div>
+          {this.state.showClock && <Clock tips={this.state.tips} />}
+          <button onClick={() => this.updateTips()}>更新tips</button>
+          <button onClick={() => this.changeDisplayClock()}>改变显隐</button>
+        </div>
+      );
+    }
+  }
+
+  var vm = ReactDOM.render(
+    <App />,
+    document.getElementById("root")
+  );
+</script>
+
+</html>
