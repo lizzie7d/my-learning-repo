@@ -1,5 +1,5 @@
-1.不可变性在 react 中的中的重要性
-.slice 方法创建数据的副本，而不是直接修改现有的数组
+1. 不可变性在 react 中的中的重要性
+   .slice 方法创建数据的副本，而不是直接修改现有的数组
 
 一般来说有两种改变数据的方式，一种是直接修改变量，另一种是使用新的一份数据代替旧数据。
 直接修改：
@@ -20,9 +20,9 @@ console.log(newPlayer);==> {score:2, name:'liz'}
 
 不可变性最主要的优势在于它可以帮助我们在 React 中创建 pure components。我们可以很轻松的确定不可变数据是否发生了改变，从而确定何时对组件进行重新渲染。
 
-2.事件处理
-不可以通过 return false 的方法阻止默认行为，必须显式的使用 preventDefault
-如果没有在方法后面添加 ()，例如 onClick={this.handleClick}，则应该为这个方法绑定 this。
+2. 事件处理
+   不可以通过 return false 的方法阻止默认行为，必须显式的使用 preventDefault
+   如果没有在方法后面添加 ()，例如 onClick={this.handleClick}，则应该为这个方法绑定 this。
 
-3.代码分割
-最佳方式是 import()方法
+3. 代码分割
+   最佳方式是 import()方法
