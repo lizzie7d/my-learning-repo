@@ -11,6 +11,7 @@ JS 内存管理 - JS 内存机制
 
 function fn(){var i = 1; console.log(i);}
 如果我们直接打印 fn => 出现一段字符串  
+d
 fn() // 1
 
 2. 垃圾回收
