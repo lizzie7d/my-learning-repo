@@ -52,3 +52,13 @@ background: linear-gradient(
 ```css
 <meta name="’viewport’" content="”width=device-width," initial-scale="1." maximum-scale="1,user-scalable=no”"/>
 ```
+
+1.5 盒模型 => 标准盒模型、IE 盒模型
+两种盒子模型都是由 content + padding + border + margin 构成，其大小是由 content + padding + border 决定的。
+盒子内容宽/高度 => 标准盒模型 只包含 content IE 盒模型 content + padding + border
+
+box-sizing: content-box ：标准盒模型（默认值）
+box-sizing: border-box ：IE（替代）盒模型。
+
+1.6 优先级
+优先级一般为 !important > style > id > class

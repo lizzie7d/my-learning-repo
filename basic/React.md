@@ -26,3 +26,18 @@ console.log(newPlayer);==> {score:2, name:'liz'}
 
 3. 代码分割
    最佳方式是 import()方法
+
+4. setState 同步还是异步
+   setState 本身代码的执行肯定是同步，异步是指多个 state 会合成到一起进行批量更新。同步还是异步取决于他被调用的环境
+
+=> 如果 setState 在 React 能否控制的范围被调用，就是异步。比如合成事件处理函数，生命周期函数，此时会进行批量更新，也就是将状态合并后再进行 DOM 更新
+
+=> 如果 setState 在原生 js 控制的范围内，就是同步。比如原生事件处理函数，定时器回调函数，ajax 回调函数中，此时 setstate 被调用后立即更新 DOM
+
+5. 函数编程
+
+```javascript
+const arr = ['john', 'harold'];\
+const objectArr = [];
+arr.map((item)=>objectArr.push({name:item}))
+```
