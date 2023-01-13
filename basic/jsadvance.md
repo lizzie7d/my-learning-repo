@@ -208,6 +208,9 @@ Object.prototype.toString.call(arr); // "[object Array]"
    以字符串为例，没有任何方法可以直接改变字符串
    由于栈中的内存空间的大小是固定的，那么注定了存储在栈中的变量就是不可变的。
    2）复制
+
+```javascript
+
    var name = 'ConardLi';
    var name2 = name;
    name2 = 'code 秘密花园';
@@ -216,7 +219,17 @@ Object.prototype.toString.call(arr); // "[object Array]"
    var obj = {name:'ConardLi'};
    var obj2 = obj;
    obj2.name = 'code 秘密花园';
+
    console.log(obj.name); // code 秘密花园
-   当我们复制引用类型的变量时，实际上复制的是栈中存储的地址，所以复制出来的 obj2 实际上和 obj 指向的堆中同一个对象。因此，我们改变其中任何一个变量的值，另一个变量都会受到影响，这就是为什么会有深拷贝和浅拷贝的原因。
-   3）比较
-   对于引用类型，比较时会比较它们的<h3>引用地址</h3>，虽然两个变量在堆中存储的对象具有的属性值都是相等的，但是它们被存储在了不同的存储空间，因此比较值为 false。
+```
+
+当我们复制引用类型的变量时，实际上复制的是栈中存储的地址，所以复制出来的 obj2 实际上和 obj 指向的堆中同一个对象。因此，我们改变其中任何一个变量的值，另一个变量都会受到影响，这就是为什么会有深拷贝和浅拷贝的原因。
+3）比较
+对于引用类型，比较时会比较它们的<h3>引用地址</h3>，虽然两个变量在堆中存储的对象具有的属性值都是相等的，但是它们被存储在了不同的存储空间，因此比较值为 false。
+
+10. 数组去重
+
+```javascript
+const uniqueArr = (arr) => [...new Set(arr)];
+console.log(uniqueArr(['前端', 'js', 'html', 'js', 'css', 'html'])); // ['前端', 'js', 'html', 'css']
+```
