@@ -160,8 +160,26 @@ this.eventMap[type].push(handler);
 
 2. const {Provider, Consumer} = AppContext;
 
-# Redux => Redux 是 js 状态容器，他提供可预测的状态管理
+# Redux => Redux 是 js 状态容器，他提供可预测的状态管理 => 严格单向
 
 store => 是一个单一的数据源，而且是只读
 action => 是对变化的描述
 reducer => 负责对变化进行分发和处理
+
+```javascript
+//引入redux
+import {createStore} from 'react';
+//创建store
+const store = createStore(reducer(必传));
+
+(reducer) => 作用是将新的state返回给store;
+const reducer = (state, action) => {
+  return new_state;
+};
+
+(action) => (作用是通知reducer让改变发生) => 对象;
+
+const action = {type: 'ADD_ITEM', payload: '<li>123</li>'};
+
+action只是一个动作，使用dispatch派发action action会进入到reducer里触发对应的更新  store.dispatch(action)
+```
