@@ -1,0 +1,30 @@
+Store ==> 就是一个仓库 存储了所有的 state
+{
+milk:0
+}
+
+Action ==> 动作/动作的目的就是更改 store 中的某个状态
+{
+type:"PUT_MIKE",
+count:1,
+}
+
+Reducer ==> 具体操作是 reducer Reducer 就是根据接受的 Action 来改变 Store 中的状态
+const initState = {
+milk:0
+}
+
+function reducer(state = initState, action){
+switch(action.type){
+case 'PUT_MILK':
+return {...state, milk: state.milk + action.count}
+}
+}
+
+
+Redux本身就是一个单纯的状态机 Store存放了所有的状态 
+
+subscribe => 订阅store的变化，一旦store变化，传入的回调函数就会被调用
+
+将action发出去要使用dispatch
+store.dispatch({type:'PUT_MILK});
